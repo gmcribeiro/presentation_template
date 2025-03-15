@@ -1,0 +1,52 @@
+\usepackage{calc}
+
+
+\newcommand{\frametitletable}[5]{
+
+\newdimen\sepvalue % extra space around the text and logo
+\newdimen\coldist % Distance between text and logo
+\newdimen\leftmarg % Left margin adjustment
+\newcommand{\textshare}{#2} % 0-1
+\newcommand{\imagecommand}{#1}
+
+\setlength{\sepvalue}{#3}
+
+\setlength{\coldist}{#4}
+
+\setlength{\leftmarg}{#5}
+    
+\newdimen\newweight
+
+\setlength{\newweight}{%
+    \paperwidth-2\sepvalue}
+
+
+\setbeamertemplate{frametitle}{%
+\nointerlineskip%
+    \begin{beamercolorbox}[sep=\sepvalue, leftskip=0pt, rightskip=0pt, wd=\paperwidth, center]{frametitle}
+    \makebox[\paperwidth][c]{
+    \hspace{-\sepvalue}
+    \hspace{\coldist}
+        \makebox[\textshare\newweight][l]{%
+                \hspace{\leftmarg}%Left margin adjustment
+            \begin{minipage}[c]{\textshare\newweight}
+                \insertframetitle
+                \ifdefempty{\insertframesubtitle}{}{%
+                    \par%
+                    \usebeamerfont{framesubtitle}%
+                    \usebeamercolor[fg]{framesubtitle}%
+                    \insertframesubtitle%
+                }
+            \end{minipage}
+        }%
+        \hspace{\coldist}
+        \makebox[\newweight-\textshare\newweight][r]{%
+         \begin{minipage}[c]{\newweight-\textshare\newweight}
+            \imagecommand
+            \end{minipage}
+        }\hspace{\sepvalue}
+        }
+    \end{beamercolorbox}
+}
+
+}

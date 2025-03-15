@@ -1,0 +1,37 @@
+\newcommand{\titlegraphicfootvar}{}
+\newcommand{\inserttitlegraphicfoot}{\titlegraphicfootvar}
+\newcommand{\titlegraphicfoot}[1]{\renewcommand{\titlegraphicfootvar}{#1}}
+
+
+\setbeamertemplate{title graphic}{
+  \vbox to 0pt {
+    \vspace*{-6em}
+    \inserttitlegraphic%
+  }%
+}
+\setbeamertemplate{title graphic foot}{
+  \vbox to 0pt {
+    % \vspace*{-6em}
+    \inserttitlegraphicfoot%
+  }%
+}
+\setbeamertemplate{title page}{
+  \begin{minipage}[c][\textheight]{\textwidth}
+    \null%
+    \vspace{0pt plus 1.618fil}%
+    \vfil%
+    \ifx\inserttitlegraphic\@empty\else\usebeamertemplate*{title graphic}\fi
+    \ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi
+    \ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi
+    \usebeamertemplate*{title separator}
+    % \expandafter\ifblank\expandafter{\beamer@andstripped}{}{%
+      \usebeamertemplate*{author}%
+    % }
+    \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi
+    \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
+    \vspace{0pt plus 1fil}%
+    \ifx\inserttitlegraphicfoot\@empty\else\usebeamertemplate*{title graphic foot}\fi
+    \null
+  \end{minipage}%
+}
+

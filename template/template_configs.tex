@@ -1,0 +1,19 @@
+\input{template/custom_headline.tex}
+\input{template/custom_frametitle.tex}
+\input{template/custom_titlepage.tex}
+
+% To add the top logo to the title page
+\titlegraphic{\hfill\includegraphics[height=1cm]{template/combined_logo_mDarkTeal.eps}}
+
+% To add the foot logo to the title page (sponsors)
+\titlegraphicfoot{\centering\includegraphics[height=0.8cm]{template/prr_logo.eps}}
+
+% To add content to the left side of the frame titles. The first parameter is for the relative space for text (0-1), and the second is the content of the right side of the title. The downside is that the title will need more vertical space
+% \frametitletable{\includegraphics[height=3.5ex,keepaspectratio]{template/combined_logo_white.eps}}{0.745}{5pt}{3pt}{-3pt}
+\frametitletable{\includegraphics[height=3.8ex,keepaspectratio]{template/ua_logo_white.eps}}{0.82}{5pt}{3pt}{-3pt}
+
+% To add a graphical representation of the current section to each frame
+\headline
+
+% To remove begin section page
+% \AtBeginSection{}

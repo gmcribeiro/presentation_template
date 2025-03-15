@@ -1,0 +1,41 @@
+\documentclass{beamer}
+
+\usetheme{moloch}
+
+% Template customizations at template/template_configs.tex
+\input{template/template_configs.tex}
+
+
+
+\title{A minimal example}
+\subtitle{A minimal subtitle}
+\date{\today}
+\author{Gonçalo Ribeiro}
+\institute{University of Aveiro\\PhD in Mechanical Engineering}
+
+
+\begin{document}
+  \maketitle
+
+\begin{frame}{Table of Contents}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents
+\end{frame}
+
+\section{Section A}
+\begin{frame}{Normal title}
+\end{frame}
+\begin{frame}{Normal title}{Normal subtitle}
+\end{frame}
+\section{Section B}
+\begin{frame}{A great and huge title without a subtitle but very informative and beautiful}
+\end{frame}
+\begin{frame}{A great and huge title with a normal subtitle and very informative and beautiful}{Normal subtitle}
+\end{frame}
+\begin{frame}{A great and huge title with a big subtitle and very informative and beautiful}{A great and huge subtitle with a big title and very informative and beautiful}
+\end{frame}
+\section{Section C}
+\begin{frame}{Normal title}{A great and huge subtitle with a normal title and very informative and beautiful}
+\end{frame}
+\maketitle
+\end{document}
