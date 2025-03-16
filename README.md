@@ -8,6 +8,27 @@ This template uses the beamer theme [moloch](https://github.com/jolars/moloch/) 
 
 # Usage
 
+Clone the repository
+
+```bash
+git clone https://github.com/gmcribeiro/presentation_template
+```
+
+Go to the created directory
+
+```bash
+cd presentation_template
+```
+
+And then build with make
+
+```bash
+make
+```
+
+
+# Costumization
+
 The modifications are in the file [template/template_configs.tex](/template/template_configs.tex). Each modification has its command, which can be disabled by commenting the command's line.
 
 ## Title page
@@ -57,7 +78,11 @@ This command has five parameters:
 
 ### The problems of implementation
 
-(to be done)
+If you look into the source code of [custom_frametitle.tex](/template/custom_frametitle.tex), you will find the overwrite function ```\setbeamertemplate{frametitle}{(...)}```. The simplest approach to alignment is using ```columns```, but this environment does not work correctly inside ```beamercolorbox``` or ```tcolorbox``` when spanning the full ```\paperwidth```, causing misalignments.  
+
+An alternative is the ```tabular``` environment with the ```m``` parameter for middle alignment. However, variable text length introduces alignment issues. Using ```minipage``` for each cell ensures text and image alignment, but the tabular environment cannot correctly determine boundaries, leading to text overflow outside the ```beamercolorbox```. Packages like ```adjustbox``` mitigate these issues, yet I encountered alignment problems and abandoned this approach.  
+
+The only method that ensured proper alignment within ```beamercolorbox``` was using separate boxes for text and image, spacing them with ```hspace``` while avoiding line breaks between box definitions. This setup makes the boxes behave like inline text, aligning automatically. The other boxes around are for easily moving the text and the image as a single unit.
 
 
 ## To remove begin section page
